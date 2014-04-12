@@ -3,7 +3,7 @@
    
 
       <div class="footer">
-        <p>&copy; TutBuzz.com</p>
+        <p>&copy; NTOSS</p>
       </div>
 
     </div> <!-- /container -->

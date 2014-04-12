@@ -2,19 +2,18 @@
 
       <div class="masthead">
         
-        <h3 class="muted">TutBuzz</h3>
+        <h3 class="muted">NTOSS</h3>
       </div>
 
       <hr>
 
       <div class="jumbotron">
-        <h1>PHP Login script tutorial</h1>
-        <p class="lead">Creating authentication system in PHP is really simple, learn to create simple login system using PHP and MySql</p>
+        <h1>NASA Technologist One Stop Shop</h1>
+        <p class="lead">All information on projects, business opportunities, suppliers, vendors and competitions related to NASA</p>
 		
 		<?php $message = $_GET['message'];
 		
 		
-		//Alert messages based on integers
 		if($message == 1) {
 		echo '
 		<div class="alert">
