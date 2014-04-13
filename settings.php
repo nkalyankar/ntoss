@@ -65,10 +65,10 @@ $email = $match_value['email'];
 				Settings
 			</legend>
 
-			<label>Full Name *</label>
+			<label>First Name *</label>
 			<input name="full_name" type="text" placeholder="Type something…" value="<?php echo $firstname; ?>" >
 			<br/>
-			<label>Location </label>
+			<label>Last Name </label>
 			<input name="location" type="text" placeholder="Type something…" value="<?php echo $lastname; ?>">
 			<br/>
 			<label>Email </label>
