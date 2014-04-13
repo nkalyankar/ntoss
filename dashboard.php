@@ -42,8 +42,13 @@ for ($x = 0; $x < mysql_num_rows($query); $x++) {
 }
 ?>
 <br/>
-<div style="float:right"> <a class="btn btn-info" href="settings.php" > Settings </a>  <a class="btn btn-danger logout" href="logout.php" > Logout</a> </div>
 
+     <div class="masthead">
+        
+        <h3 class="muted">NTOSS</h3>
+      </div>
+
+      <hr>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -67,7 +72,7 @@ for ($x = 0; $x < mysql_num_rows($query); $x++) {
 			'Low' : '#E8540C',
 			'Very Low' : '#FF0000',
 			'Very High' : '#5B0DFF',
-			defaultFill : '#EDDC4E'
+			defaultFill : '#DEF0FF'
 		},
 		data : {    
 			
@@ -90,9 +95,6 @@ for ($x = 0; $x < mysql_num_rows($query); $x++) {
 
 					} else {
 						if ($var === 1) {
-							//							$counter = array("fillKey" => "Republican", "count" => intval($match['count']));
-							//							$state = array($match['state'] => $counter);
-							//echo "\"" . $match['state'] . "\":" . "{\"fillKey\": \"Republican\",\"count\": " . intval($match['count']) . "}";
 							if(intval($match['count'])<20)
 							{
 								$fill = $verylow;
@@ -108,11 +110,8 @@ for ($x = 0; $x < mysql_num_rows($query); $x++) {
 							}
 							$outputjson = "\"" . $match['state'] . "\":" . "{\"fillKey\": \"" . $fill . "\",\"count\": " . intval($match['count']) . "}";
 							echo $outputjson;
-							//							$data[] = $state;
 							$var = 2;
 						} else {
-							//							$counter = array("fillKey" => "Republican", "count" => intval($match['count']));
-							//							$state = array($match['state'] => $counter);
 							if(intval($match['count'])<20)
 							{
 								$fill = $verylow;
@@ -128,7 +127,6 @@ for ($x = 0; $x < mysql_num_rows($query); $x++) {
 							}
 							$outputjson = "," . "\"" . $match['state'] . "\":" . "{\"fillKey\": \"" . $fill . "\",\"count\": " . intval($match['count']) . "}";
 							echo $outputjson;
-							//							$data[] = $state;
 						}
 					}
 				}
@@ -136,6 +134,9 @@ for ($x = 0; $x < mysql_num_rows($query); $x++) {
 		}});
 		ntoss.labels();
 </script>
+
+<div style="float:right"> <a class="btn btn-info" href="settings.php" > Settings </a>  <a class="btn btn-danger logout" href="logout.php" > Logout</a> </div>
+
 <?php
 include ('footer.php');
  ?> 

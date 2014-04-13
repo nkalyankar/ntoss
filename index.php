@@ -1,3 +1,16 @@
+<?php
+//place this code on top of all the pages which you need to authenticate
+
+//--- Authenticate code begins here ---
+session_start();
+//checks if the login session is true
+if (isset($_SESSION['username'])) {
+	header("location:dashboard.php");
+}
+$username = $_SESSION['username'];
+
+// --- Authenticate code ends here ---
+?>
 <?php include ('header.php'); ?> 
 
       <div class="masthead">
