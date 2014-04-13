@@ -42,9 +42,9 @@ Failed to update
 
 $document_get = mysql_query("SELECT * FROM users WHERE username='$username'");
 $match_value = mysql_fetch_array($document_get);
-$fullname = $match_value['fullname'];
-$location = $match_value['location'];
-$gender = $match_value['gender'];
+$firstname = $match_value['firstname'];
+$lastname = $match_value['lastname'];
+$email = $match_value['email'];
 ?>
 <br/>
 
@@ -66,22 +66,14 @@ $gender = $match_value['gender'];
 			</legend>
 
 			<label>Full Name *</label>
-			<input name="full_name" type="text" placeholder="Type something…" value="<?php echo $fullname; ?>" >
+			<input name="full_name" type="text" placeholder="Type something…" value="<?php echo $firstname; ?>" >
 			<br/>
 			<label>Location </label>
-			<input name="location" type="text" placeholder="Type something…" value="<?php echo $location; ?>">
+			<input name="location" type="text" placeholder="Type something…" value="<?php echo $lastname; ?>">
 			<br/>
-			<label>Gender </label>
-			<select name="gender">
-				<option <?php
-				if ($gender == Male)
-					echo 'selected';
- ?> >Male</option>
-				<option <?php
-					if ($gender == Female)
-						echo 'selected';
- ?> >Female</option>
-			</select>
+			<label>Email </label>
+			<input name="email" type="text" placeholder="Type something…" value="<?php echo $email; ?>">
+		
 
 			<br/>
 			<button type="submit" class="btn">
