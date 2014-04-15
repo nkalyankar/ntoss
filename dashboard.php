@@ -105,6 +105,7 @@ data : {
 ?>
 	}});
 	ntoss.labels(); 
+	ntoss.legend();
 </script>
 
 <div style="float:right">
