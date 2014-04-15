@@ -54,6 +54,12 @@ fills : {
 'Very High' : '#21ADCC',
 defaultFill : '#919988'
 },
+done: function(datamap) {
+datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+alert(geography.properties.name);
+//location.href = "http://ntoss.teknr.com/settings.php";
+});
+},
 data : {
 
 <?php $query = mysql_query("SELECT COUNT(duns) AS count,state FROM address GROUP BY state");
