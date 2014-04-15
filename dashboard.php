@@ -48,11 +48,11 @@ highlightBorderWidth : 3
 },
 
 fills : {
-'High' : '#FFA60D',
-'Low' : '#E8540C',
-'Very Low' : '#FF0000',
-'Very High' : '#5B0DFF',
-defaultFill : '#DEF0FF'
+'Very Low' : '#21ADCC',
+'Low' : '#50B1FF',
+'High' : '#FFB910',
+'Very High' : '#CCBC21',
+defaultFill : '#919988'
 },
 data : {
 
