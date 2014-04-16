@@ -58,8 +58,6 @@ defaultFill : '#919988'
 },
 done: function(datamap) {
 datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-<<<<<<< HEAD
-
 var xmlhttp;
 if (window.XMLHttpRequest)
 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -78,10 +76,6 @@ document.getElementById("state").innerHTML=xmlhttp.responseText;
 }
 xmlhttp.open("GET","stateinfo.php?state="+geography.properties.name,true);
 xmlhttp.send();
-=======
-alert(geography.properties.name);
-//location.href = "http://ntoss.teknr.com/settings.php";
->>>>>>> 88fbfe516f60ffee25b6b6e4f4f042446cb1386f
 });
 },
 data : {
@@ -134,13 +128,8 @@ data : {
 	}
 ?>
 	}});
-<<<<<<< HEAD
 	ntoss.labels();
 	ntoss.legend(); 
-=======
-	ntoss.labels(); 
-	ntoss.legend();
->>>>>>> 88fbfe516f60ffee25b6b6e4f4f042446cb1386f
 </script>
 <br/>
 <hr/>

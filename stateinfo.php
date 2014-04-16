@@ -72,14 +72,14 @@ $states = array(
 $state = $_GET['state'];
 $state = strtoupper($state);
 echo $state . " - " . $states[$state];
-$output = "<table class=\"table table-striped\">";
-$query = mysql_query("SELECT vendor.vendor_name, address.city, address.zipcode FROM address LEFT JOIN vendor ON vendor.DUNS = address.DUNS where address.state=\"" . $states[$state] . "\" ORDER BY vendor.vendor_name");
+$output = "<table class=\"table table-striped\"><thead><th>GLOBAL VENDOR</th><th>LOCAL VENDOR</th><th>CITY</th><th>STATE</th><th>ZIP CODE</th></thead><tbody>";
+$query = mysql_query("SELECT global_vendor.vendor_name AS global, vendor.vendor_name, address.city, address.zipcode FROM address LEFT JOIN vendor ON vendor.DUNS = address.DUNS LEFT JOIN global_vendor ON global_vendor.DUNS = vendor.global_duns where address.state=\"" . $states[$state] . "\" ORDER BY vendor.vendor_name");
 
 for ($x = 0; $x < mysql_num_rows($query); $x++)
 {
     $match = mysql_fetch_array($query);
-    $output = $output . "<tr><td>" . $match['vendor_name'] . "<//td><td>" . $match['city'] . "<//td><td>" . $state . "<//td><td>" . $match['zipcode'] . "<//td><//tr>";
+    $output = $output . "<tr><td>" . $match['global'] . "</td><td>" . $match['vendor_name'] . "</td><td>" . $match['city'] . "</td><td>" . $state . "</td><td>" . $match['zipcode'] . "</td></tr>";
 }
-$output = $output . "<//table>";
+$output = $output . "</tbody></table>";
 echo $output;
 ?>
