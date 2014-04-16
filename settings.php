@@ -69,7 +69,11 @@ $email = $match_value['email'];
 			<input name="full_name" type="text" placeholder="Type something…" value="<?php echo $firstname; ?>" >
 			<br/>
 			<label>Last Name </label>
+<<<<<<< HEAD
 			<input name="last_name" type="text" placeholder="Type something…" value="<?php echo $lastname; ?>">
+=======
+			<input name="location" type="text" placeholder="Type something…" value="<?php echo $lastname; ?>">
+>>>>>>> 88fbfe516f60ffee25b6b6e4f4f042446cb1386f
 			<br/>
 			<label>Email </label>
 			<input name="email" type="text" placeholder="Type something…" value="<?php echo $email; ?>">
