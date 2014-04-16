@@ -12,4 +12,4 @@ The database contains information of 133485 contracts with 8669 global vendors h
 
 The code was developed with PHP and MySQL. US Maps were implemented by using datamaps.js, d3.js and topojson.js. 
 
-The major task was collecting information from various government websites and creating the write data model.
+The major task was collecting information from various government websites and creating the data model.
