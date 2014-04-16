@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <title>NTOSS - NASA Technologist One Stop Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="All information on projects, business opportunities, suppliers, vendors and competitions related to NASA">
+    <meta name="author" content="Nikhil Kalyankar">
 
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">

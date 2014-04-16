@@ -13,15 +13,15 @@ $username = $_SESSION['username'];
 
 <?php
 $update = $_GET['update'];
-$full_name = $_POST['full_name'];
-$full_name = strip_tags($full_name);
-$location = $_POST['location'];
-$location = strip_tags($location);
-$gender = $_POST['gender'];
+$first_name = $_POST['full_name'];
+$first_name = strip_tags($first_name);
+$last_name = $_POST['last_name'];
+$last_name = strip_tags($last_name);
+$gender = $_POST['email'];
 
 if ($update == 1 && !empty($_POST))// Checks if the form is submitted or not
 {
-	$success_update = mysql_query("UPDATE users SET fullname='$full_name', location='$location', gender='$gender' WHERE username='$username' ");
+	$success_update = mysql_query("UPDATE users SET firstname='$first_name', lastname='$last_name', email='$email' WHERE username='$username' ");
 	if ($success_update) {
 		echo '
 <div class="alert alert-success">
@@ -42,9 +42,9 @@ Failed to update
 
 $document_get = mysql_query("SELECT * FROM users WHERE username='$username'");
 $match_value = mysql_fetch_array($document_get);
-$fullname = $match_value['fullname'];
-$location = $match_value['location'];
-$gender = $match_value['gender'];
+$firstname = $match_value['firstname'];
+$lastname = $match_value['lastname'];
+$email = $match_value['email'];
 ?>
 <br/>
 
@@ -65,23 +65,15 @@ $gender = $match_value['gender'];
 				Settings
 			</legend>
 
-			<label>Full Name *</label>
-			<input name="full_name" type="text" placeholder="Type something…" value="<?php echo $fullname; ?>" >
+			<label>First Name *</label>
+			<input name="full_name" type="text" placeholder="Type something…" value="<?php echo $firstname; ?>" >
 			<br/>
-			<label>Location </label>
-			<input name="location" type="text" placeholder="Type something…" value="<?php echo $location; ?>">
+			<label>Last Name </label>
+			<input name="last_name" type="text" placeholder="Type something…" value="<?php echo $lastname; ?>">
 			<br/>
-			<label>Gender </label>
-			<select name="gender">
-				<option <?php
-				if ($gender == Male)
-					echo 'selected';
- ?> >Male</option>
-				<option <?php
-					if ($gender == Female)
-						echo 'selected';
- ?> >Female</option>
-			</select>
+			<label>Email </label>
+			<input name="email" type="text" placeholder="Type something…" value="<?php echo $email; ?>">
+		
 
 			<br/>
 			<button type="submit" class="btn">
@@ -101,7 +93,7 @@ just make sure your encrypt the password using md5 before you save to database.
 	function validate() {
 
 		if (document.myForm.full_name.value == "") {
-			alert("Please provide your full name!");
+			alert("Please provide your first name!");
 			document.myForm.full_name.focus();
 			return false;
 		}

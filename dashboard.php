@@ -15,7 +15,9 @@ $username = $_SESSION['username'];
 <?php
 include ('header.php');
 ?>
-
+<div style="float:right">
+	<a class="btn btn-info" href="settings.php" > Settings </a><a class="btn btn-danger logout" href="logout.php" > Logout</a>
+</div>
 <?php
 //List of state codes
 $states = "AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,MD,MA,MI,MN,MS,MO,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY";
@@ -35,8 +37,8 @@ $states = "AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MT,NE,NV,
 <script src="http://datamaps.github.io/scripts/datamaps.all.js"></script>
 <div class="map" id="ntoss" style="position: relative; width: 1000px; height: 600px;"></div>
 <script>
-
-	var ntoss = new Datamap({
+	//This script generates the US map and retrieves information from MySQL database
+var ntoss = new Datamap({
 scope : 'usa',
 element : document.getElementById('ntoss'),
 geographyConfig : {
@@ -48,11 +50,34 @@ highlightBorderWidth : 3
 },
 
 fills : {
-'High' : '#FFA60D',
-'Low' : '#E8540C',
-'Very Low' : '#FF0000',
-'Very High' : '#5B0DFF',
-defaultFill : '#DEF0FF'
+'Very Low' : '#CCBC21',
+'Low' : '#FFB910',
+'High' : '#50B1FF',
+'Very High' : '#21ADCC',
+defaultFill : '#919988'
+},
+done: function(datamap) {
+datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox, Chrome, Opera, Safari
+xmlhttp=new XMLHttpRequest();
+}
+else
+{// code for IE6, IE5
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange=function()
+{
+if (xmlhttp.readyState==4 && xmlhttp.status==200)
+{
+document.getElementById("state").innerHTML=xmlhttp.responseText;
+}
+}
+xmlhttp.open("GET","stateinfo.php?state="+geography.properties.name,true);
+xmlhttp.send();
+});
 },
 data : {
 
@@ -104,12 +129,13 @@ data : {
 	}
 ?>
 	}});
-	ntoss.labels(); 
+	ntoss.labels();
+	ntoss.legend(); 
 </script>
+<br/>
+<hr/>
+<div id="state" ></div>
 
-<div style="float:right">
-	<a class="btn btn-info" href="settings.php" > Settings </a><a class="btn btn-danger logout" href="logout.php" > Logout</a>
-</div>
 
 <?php
 include ('footer.php');
